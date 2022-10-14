@@ -1,0 +1,27 @@
+.minimap-container {
+  position: relative;
+  overflow: hidden;
+  user-select:none;
+}
+
+.minimap-container img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+
+.minimap-selector {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: #000;
+  opacity: 0.2;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.minimap-selector:hover {
+  opacity: 0.3;
+}
