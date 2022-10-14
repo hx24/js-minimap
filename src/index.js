@@ -90,7 +90,6 @@ class Minimap {
           this.domPreview = img
           mapContainer.appendChild(img)
           resolve()
-          console.log('渲染完毕')
         })
         .catch(function (error) {
           console.error('oops, something went wrong!', error)
