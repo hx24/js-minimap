@@ -15,6 +15,7 @@
     "rollup-plugin-postcss": "4.0.2"
   },
   "dependencies": {
-    "dom-to-image": "2.6.0"
+    "dom-to-image": "2.6.0",
+    "lodash.throttle": "4.1.1"
   }
 }

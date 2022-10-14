@@ -1,4 +1,5 @@
 import domToImage from 'dom-to-image'
+import lodashThrottle from 'lodash.throttle'
 import './style.css'
 
 class Minimap {
@@ -20,6 +21,13 @@ class Minimap {
     this.renderMapSelector()
     this.listenContainerScroll()
     this.setMapSelectorDrag()
+    this.observeContainer()
+  }
+
+  async reset() {
+    this.setMapSize()
+    await this.renderDomPreview()
+    this.renderMapSelector()
   }
 
   /**
@@ -65,7 +73,7 @@ class Minimap {
   renderDomPreview() {
     return new Promise((resolve, reject) => {
       const { options, mapWidth, mapHeight, mapContainer } = this
-      const { container, target } = options
+      const { container } = options
       domToImage
         .toPng(container, {
           width: container.scrollWidth,
@@ -133,7 +141,7 @@ class Minimap {
   }
 
   setMapSelectorPosition() {
-    const { options, mapSelector, mapWidth, mapHeight } = this
+    const { mapSelector, mapWidth, mapHeight } = this
     const {
       containerScrollWidth,
       containerScrollHeight,
@@ -164,8 +172,6 @@ class Minimap {
     const {
       mapSelector,
       options: { container },
-      mapWidth,
-      mapHeight,
     } = this
 
     let startMouseX = 0
@@ -177,6 +183,8 @@ class Minimap {
       const { clientX, clientY } = e
       const offsetX = clientX - startMouseX
       const offsetY = clientY - startMouseY
+
+      const { mapWidth, mapHeight } = this
 
       let left = startSelectorX + offsetX
       let top = startSelectorY + offsetY
@@ -221,6 +229,25 @@ class Minimap {
     document.addEventListener('mouseup', (e) => {
       mapSelector.removeEventListener('mousemove', move)
       this.draging = false
+    })
+  }
+
+  /**
+   * 监听container的变化, 重新渲染minimap
+   */
+  observeContainer() {
+    const { observe = true, throttle = 30 } = this.options
+    const observer = new MutationObserver(
+      lodashThrottle(() => {
+        if (!observe) return
+        this.reset()
+      }, throttle),
+    )
+    observer.observe(this.options.container, {
+      subtree: true,
+      childList: true,
+      attributes: true,
+      characterData: true,
     })
   }
 }
