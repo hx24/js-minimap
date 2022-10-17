@@ -16,7 +16,7 @@ Generate a minimap for your web page(or a module), and observe the view to updat
 import Minimap from 'js-minimap'
 ```
 
-### Bower
+### Browser
 
 ```html
 <script src="js-minimap/dist/minimap.umd.js" />
