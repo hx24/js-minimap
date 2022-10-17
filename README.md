@@ -2,7 +2,8 @@
 
 [中文文档](https://github.com/hx24/js-minimap/blob/master/README-CN.md)
 
-Generate a minimap for your web page(or a module), and observe the view to update automatic.
+Generate a minimap for your web page(or a module), and observe the view to update automatic.  
+
 自动生成页面（或局部模块）的缩略图，并可观察视图变化以自动更新缩略图。
 
 ![preview](https://qnm.hunliji.com/FtjaiZMwrepSyKiB33s9KhHrZk9J)
