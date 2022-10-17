@@ -32,6 +32,10 @@ class Minimap {
    */
   constructor(options: MinimapOptions) {
     this.options = options
+    const { container, target } = options
+    if (!container || !target) {
+      throw new Error('container and target are required')
+    }
     this.init()
   }
 
