@@ -2,7 +2,7 @@
 
 [中文文档](https://github.com/hx24/js-minimap/blob/master/README-CN.md)
 
-Generate a minimap for your web page(or a module), and observe the view to update automatic.  
+Generate a minimap for your web page(or a module), and observe the view to update automatic.
 
 自动生成页面（或局部模块）的缩略图，并可观察视图变化以自动更新缩略图。
 
@@ -44,11 +44,11 @@ import Minimap from 'js-minimap'
 
 ## Options
 
-| Option    | Description                                                                              | Type        | Accepted Values | Default |
-| :-------- | :--------------------------------------------------------------------------------------- | :---------- | :-------------- | :------ |
-| container | any container you want to generate a minimap for                                         | HTMLElement | —               | —       |
-| target    | somewhere you want to place the minimap. (the target dom cant't be a child of container) | HTMLElement | —               | —       |
-| width     | minimap's width                                                                          | number      | 200             | —       |
-| height    | minimap's height, if width options is available, height will be ignored                  | number      | -               | —       |
-| observe   | whether observe the view container to update the minimap, based on MutationObserver      | boolean     | true            | —       |
-| throttle  | throttle time                                                                            | number      | 30              | —       |
+| Option    | Description                                                                              | Type        | Default |
+| :-------- | :--------------------------------------------------------------------------------------- | :---------- | :------ |
+| container | any container you want to generate a minimap for                                         | HTMLElement | —       |
+| target    | somewhere you want to place the minimap. (the target dom cant't be a child of container) | HTMLElement | —       |
+| width     | minimap's width                                                                          | number      | 200     |
+| height    | minimap's height, if width options is available, height will be ignored                  | number      | -       |
+| observe   | whether observe the view container to update the minimap, based on MutationObserver      | boolean     | true    |
+| throttle  | throttle time                                                                            | number      | 30      |
