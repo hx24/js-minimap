@@ -3,6 +3,7 @@ import commonjs from '@rollup/plugin-commonjs'
 import postcss from 'rollup-plugin-postcss'
 import typescript from '@rollup/plugin-typescript'
 import clear from 'rollup-plugin-clear'
+import { terser } from 'rollup-plugin-terser';
 
 const production = process.env.NODE_ENV === 'production'
 
@@ -32,5 +33,6 @@ export default {
       // optional, whether clear the directory when rollup recompile on --watch mode.
       // watch: true, // default: false
     }),
+    terser()
   ],
 }
