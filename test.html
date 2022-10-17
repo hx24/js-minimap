@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,9 +13,11 @@
       border: 1px solid #ccc;
       overflow: auto;
     }
+
     .row {
       width: 1000px;
     }
+
     .box {
       margin: 1rem;
       background-color: aquamarine;
@@ -30,9 +33,9 @@
       border: 1px solid #eee;
       width: 200px;
     }
-    
   </style>
 </head>
+
 <body>
 
   <div class="container">
@@ -73,10 +76,10 @@
     <div class="box box5">box5</div>
     <div class="box box6">box6</div>
   </div>
-  
+
   <div class="mc"></div>
 
-  <button id="resize">resize</button></button>
+  <button id="resize">change</button></button>
 
   <!-- <script src="./dist/index.js"></script> -->
   <script src="./dist/minimap.umd.js"></script>
@@ -90,9 +93,12 @@
 
 
     resize.addEventListener('click', () => {
-      // boxa.style.width = '30px';
-      container.style.width = '400px'
+      document.querySelectorAll('.box').forEach((box) => {
+        box.style.backgroundColor = 'blue'
+        box.style.width = '200px'
+      })
     })
   </script>
 </body>
+
 </html>
