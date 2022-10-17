@@ -1,7 +1,7 @@
 {
   "name": "js-minimap",
   "version": "1.0.0",
-  "description": "Generate a minimap for your web page(or a module).",
+  "description": "Generate a minimap for your web page(or a module).自动生成网页缩略图",
   "main": "dist/minimap.umd.js",
   "module": "dist/minimap.esm.js",
   "license": "MIT",
@@ -34,6 +34,8 @@
   },
   "keywords": [
     "minimap",
-    "preview"
+    "preview",
+    "缩略图",
+    "预览图"
   ]
 }
