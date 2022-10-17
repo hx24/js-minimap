@@ -1,21 +1,39 @@
 {
   "name": "js-minimap",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Generate a minimap for your web page(or a module).",
+  "main": "dist/minimap.umd.js",
+  "module": "dist/minimap.esm.js",
   "license": "MIT",
+  "files": ["dist/**/*"],
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/osiolabs/example.git"
+  },
+  "author": "hx24",
   "scripts": {
-    "build": "rollup -c --watch"
+    "dev": "rollup -c --watch",
+    "build": "cross-env NODE_ENV=production rollup -c"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "23.0.0",
     "@rollup/plugin-node-resolve": "15.0.0",
+    "@rollup/plugin-typescript": "9.0.1",
+    "@types/dom-to-image": "2.6.4",
+    "@types/lodash.throttle": "4.1.7",
+    "cross-env": "7.0.3",
+    "dom-to-image": "2.6.0",
+    "lodash.throttle": "4.1.1",
     "postcss": "8.4.18",
     "rollup": "3.1.0",
-    "rollup-plugin-postcss": "4.0.2"
+    "rollup-plugin-clear": "2.0.7",
+    "rollup-plugin-postcss": "4.0.2",
+    "tslib": "2.4.0",
+    "typescript": "4.8.4"
   },
-  "dependencies": {
-    "dom-to-image": "2.6.0",
-    "lodash.throttle": "4.1.1"
-  }
+  "keywords": [
+    "minimap",
+    "preview"
+  ]
 }

@@ -2,19 +2,40 @@ import domToImage from 'dom-to-image'
 import lodashThrottle from 'lodash.throttle'
 import './style.css'
 
+interface MinimapOptions {
+  container: HTMLElement,
+  target: HTMLElement,
+  width?: number,
+  height?: number,
+  observe?: boolean,
+  throttle?: number
+}
+
 class Minimap {
-  constructor(options) {
+  private options: MinimapOptions
+  private mapContainer: HTMLElement = null
+  private mapSelector: HTMLElement = null
+  private domPreview: HTMLImageElement = null
+  private draging: boolean = false
+  private mapWidth: number = 0
+  private mapHeight: number = 0
+
+  /**
+   * minimap
+   * @param {object} options 配置项
+   * @param {object} options.container 要生成缩略图的容器
+   * @param {object} options.target 放置缩略图的容器
+   * @param {object} options.width 缩略图的宽度
+   * @param {object} options.height 缩略图的高度，优先使用width，高度等比例生成
+   * @param {object} options.observe 是否监听container内容变化，自动更新缩略图，默认开启
+   * @param {object} options.throttle 缩略图节流时间
+   */
+  constructor(options: MinimapOptions) {
     this.options = options
-    this.mapWidth = 0
-    this.mapHeight = 0
-    this.mapContainer = null
-    this.mapSelector = null
-    this.domPreview = null
-    this.draging = false
     this.init()
   }
 
-  async init() {
+  private async init() {
     this.initMapStructure()
     this.setMapSize()
     await this.renderDomPreview()
@@ -24,6 +45,9 @@ class Minimap {
     this.observeContainer()
   }
 
+  /**
+   * 重置minimap
+   */
   async reset() {
     this.setMapSize()
     await this.renderDomPreview()
@@ -33,7 +57,7 @@ class Minimap {
   /**
    * 初始化minimap dom结构
    */
-  initMapStructure() {
+  private initMapStructure() {
     const { options } = this
     const { target } = options
     const mapContainer = document.createElement('div')
@@ -50,7 +74,7 @@ class Minimap {
   /**
    * 设置minimap的宽高
    */
-  setMapSize() {
+  private setMapSize() {
     let { container, width, height } = this.options
     if (!width && !height) {
       width = 200
@@ -70,8 +94,8 @@ class Minimap {
    * 渲染minimap的缩略图
    * @returns {Promise}
    */
-  renderDomPreview() {
-    return new Promise((resolve, reject) => {
+  private renderDomPreview() {
+    return new Promise<void>((resolve, reject) => {
       const { options, mapWidth, mapHeight, mapContainer } = this
       const { container } = options
       domToImage
@@ -98,7 +122,7 @@ class Minimap {
     })
   }
 
-  getDomSize() {
+  private getDomSize() {
     const { options } = this
     const { container } = options
     const {
@@ -123,7 +147,7 @@ class Minimap {
   /**
    * 渲染minimap的选择器
    */
-  renderMapSelector() {
+  private renderMapSelector() {
     const { mapSelector, mapWidth, mapHeight } = this
     const {
       containerWidth,
@@ -139,7 +163,7 @@ class Minimap {
     this.setMapSelectorPosition()
   }
 
-  setMapSelectorPosition() {
+  private setMapSelectorPosition() {
     const { mapSelector, mapWidth, mapHeight } = this
     const {
       containerScrollWidth,
@@ -157,7 +181,7 @@ class Minimap {
   /**
    * 监听容器的滚动事件, 修改minimap的选择器位置
    */
-  listenContainerScroll() {
+  private listenContainerScroll() {
     const { options } = this
     const { container } = options
     container.addEventListener('scroll', (e) => {
@@ -167,7 +191,7 @@ class Minimap {
     })
   }
 
-  setMapSelectorDrag() {
+  private setMapSelectorDrag() {
     const {
       mapSelector,
       options: { container },
@@ -178,7 +202,7 @@ class Minimap {
     let startSelectorX = 0
     let startSelectorY = 0
 
-    const move = (e) => {
+    const move = (e: MouseEvent) => {
       const { clientX, clientY } = e
       const offsetX = clientX - startMouseX
       const offsetY = clientY - startMouseY
@@ -234,10 +258,10 @@ class Minimap {
   /**
    * 监听container的变化, 重新渲染minimap
    */
-  observeContainer() {
+  private observeContainer() {
     const { observe = true, throttle = 30 } = this.options
     const observer = new MutationObserver(
-      lodashThrottle(() => {
+      lodashThrottle((mutationList: MutationRecord[]) => {
         if (!observe) return
         this.reset()
       }, throttle),
