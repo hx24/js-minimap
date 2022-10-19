@@ -47,8 +47,8 @@ import Minimap from 'js-minimap'
 | Option    | Description                                                                              | Type        | Default |
 | :-------- | :--------------------------------------------------------------------------------------- | :---------- | :------ |
 | container | any container you want to generate a minimap for                                         | HTMLElement | —       |
-| target    | somewhere you want to place the minimap. (the target dom cant't be a child of container) | HTMLElement | —       |
+| target    | somewhere you want to place the minimap. (**the `target` dom cant't be a child of `container`**) | HTMLElement | —       |
 | width     | minimap's width                                                                          | number      | 200     |
-| height    | minimap's height, if width options is available, height will be ignored                  | number      | -       |
+| height    | minimap's height, if `width` is available, `height` will be ignored                  | number      | -       |
 | observe   | whether observe the view container to update the minimap, based on MutationObserver      | boolean     | true    |
 | throttle  | throttle time                                                                            | number      | 30      |
