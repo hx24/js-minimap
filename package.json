@@ -1,17 +1,19 @@
 {
   "name": "js-minimap",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Generate a minimap for your web page(or a module).自动生成网页缩略图",
   "main": "dist/minimap.umd.js",
   "module": "dist/minimap.esm.js",
+  "types": "./dist/index.d.ts",
   "license": "MIT",
   "files": [
     "dist/**/*"
   ],
   "type": "module",
+  "homepage": "https://github.com/hx24/js-minimap",
   "repository": {
     "type": "git",
-    "url": "https://github.com/osiolabs/example.git"
+    "url": "git@github.com:hx24/js-minimap.git"
   },
   "author": "hx24",
   "scripts": {
