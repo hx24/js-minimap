@@ -33,6 +33,10 @@
       border: 1px solid #eee;
       width: 200px;
     }
+    img {
+      width: 100px;
+      height: 100px;
+    }
   </style>
 </head>
 
@@ -40,52 +44,62 @@
 
   <div class="container">
     <div class="row">
-      <div id="boxa" class="box box1">box1</div>
-      <div class="box box2">box2</div>
-      <div class="box box3">box3</div>
-      <div class="box box3">box3</div>
-      <div class="box box3">box3</div>
-      <div class="box box3">box3</div>
+      <img src="" alt="">
+      <div id="boxa" class="box">box</div>
+      <div class="box">box</div>
+      <div class="box">box</div>
+      <div class="box">box</div>
+      <div class="box">box</div>
+      <div class="box">box</div>
+      
     </div>
     <div class="row">
-      <div class="box box4">box4</div>
-      <div class="box box4">box4</div>
-      <div class="box box4">box4</div>
-      <div class="box box4">box4</div>
-      <div class="box box4">box4</div>
-      <div class="box box4">box4</div>
+      <div class="box">box</div>
+      <div class="box">box</div>
+      <div class="box">box</div>
+      <div class="box">box</div>
+      <div class="box">box</div>
+      <div class="box">box</div>
     </div>
     <div class="row">
-      <div class="box box4">box4</div>
-      <div class="box box4">box4</div>
-      <div class="box box4">box4</div>
-      <div class="box box4">box4</div>
-      <div class="box box4">box4</div>
-      <div class="box box4">box4</div>
+      <div class="box">box</div>
+      <div class="box">box</div>
+      <div class="box">box</div>
+      <div class="box">box</div>
+      <div class="box">box</div>
+      <div class="box">box</div>
     </div>
     <div class="row">
-      <div class="box box4">box4</div>
-      <div class="box box4">box4</div>
-      <div class="box box4">box4</div>
-      <div class="box box4">box4</div>
-      <div class="box box4">box4</div>
-      <div class="box box4">box4</div>
+      <div class="box">box</div>
+      <div class="box">box</div>
+      <div class="box">box</div>
+      <div class="box">box</div>
+      <div class="box">box</div>
+      <div class="box">box</div>
+      <div class="box">box</div>
+      <div class="box">box</div>
+      <div class="box">box</div>
+      <div class="box">box</div>
+      <div class="box">box</div>
+      <div class="box">box</div>
+      <div class="box">box</div>
     </div>
 
-    <div class="box box4">box4</div>
-    <div class="box box5">box5</div>
-    <div class="box box6">box6</div>
+    <div class="box">box</div>
+    <div class="box">box</div>
+    <div class="box">box</div>
+    <div class="mc"></div>
   </div>
 
-  <div class="mc"></div>
 
   <button id="resize">change</button></button>
 
-  <!-- <script src="./dist/index.js"></script> -->
+  <!-- <script src="./dist/minimap.esm.js"></script> -->
   <script src="./dist/minimap.umd.js"></script>
   <script>
     const target = document.querySelector('.mc');
     const container = document.querySelector('.container');
+    // const container = document.body;
     new Minimap({
       container,
       target

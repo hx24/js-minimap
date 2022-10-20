@@ -44,11 +44,28 @@ import Minimap from 'js-minimap'
 
 ## Options
 
-| Option    | Description                                                                              | Type        | Default |
-| :-------- | :--------------------------------------------------------------------------------------- | :---------- | :------ |
-| container | any container you want to generate a minimap for                                         | HTMLElement | —       |
-| target    | somewhere you want to place the minimap. (**the `target` dom cant't be a child of `container`**) | HTMLElement | —       |
-| width     | minimap's width                                                                          | number      | 200     |
-| height    | minimap's height, if `width` is available, `height` will be ignored                  | number      | -       |
-| observe   | whether observe the view container to update the minimap, based on MutationObserver      | boolean     | true    |
-| throttle  | throttle time                                                                            | number      | 30      |
+| Option    | Description                                                                         | Type        | Default |
+| :-------- | :---------------------------------------------------------------------------------- | :---------- | :------ |
+| container | any container you want to generate a minimap for                                    | HTMLElement | —       |
+| target    | somewhere you want to place the minimap.                                            | HTMLElement | —       |
+| width     | minimap's width                                                                     | number      | 200     |
+| height    | minimap's height, if `width` is available, `height` will be ignored                 | number      | -       |
+| observe   | whether observe the view container to update the minimap, based on MutationObserver | boolean     | true    |
+| throttle  | throttle time                                                                       | number      | 30      |
+
+## Methods
+
+### reset
+
+if you want to reset the minimap manually, you can call `reset` method.
+
+```javascript
+const minimap = new Minimap({
+  container,
+  target,
+  observe: false,
+})
+
+// when you want to reset the minimap, for example, the container's content changed
+minimap.reset()
+```

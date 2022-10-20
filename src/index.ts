@@ -19,6 +19,7 @@ class Minimap {
   private draging: boolean = false
   private mapWidth: number = 0
   private mapHeight: number = 0
+  private previewImgClassName = 'minimap-preview'
 
   /**
    * minimap
@@ -106,9 +107,11 @@ class Minimap {
         .toPng(container, {
           width: container.scrollWidth,
           height: container.scrollHeight,
+          filter: (node: HTMLElement) => this.isMinimapNode(node)
         })
         .then((dataUrl) => {
-          var img = new Image()
+          const img = new Image()
+          img.className = 'minimap-preview'
           img.src = dataUrl
           img.style.width = mapWidth + 'px'
           img.style.height = mapHeight + 'px'
@@ -124,6 +127,16 @@ class Minimap {
           reject(error)
         })
     })
+  }
+
+  /**
+   * 判断dom节点是否是minimap的子节点
+   * @param node 要判断的dom节点
+   * @returns {boolean} 是否是minimap的dom节点
+   */
+  private isMinimapNode(node: HTMLElement) {
+    const { options: { target }, mapContainer, mapSelector, previewImgClassName } = this
+    return ![target, mapSelector, mapContainer].includes(node) && node.className !== previewImgClassName
   }
 
   private getDomSize() {
@@ -267,7 +280,10 @@ class Minimap {
     const observer = new MutationObserver(
       lodashThrottle((mutationList: MutationRecord[]) => {
         if (!observe) return
-        this.reset()
+        const mutationTarget = mutationList.find(item => this.isMinimapNode(item.target as HTMLElement))
+        if (mutationTarget) {
+          this.reset()
+        }
       }, throttle),
     )
     observer.observe(this.options.container, {

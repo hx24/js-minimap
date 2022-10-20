@@ -27,7 +27,7 @@ import Minimap from 'js-minimap'
 <div class="minimap"></div>
 <script>
   const container = document.querySelector('.container') // 要生成缩略图的容器
-  const target = document.querySelector('.minimap') // 要放置缩略图的容器，注意不要是 container 的子元素
+  const target = document.querySelector('.minimap') // 要放置缩略图的容器
   const minimap = new Minimap({
     container,
     target,
@@ -43,8 +43,25 @@ import Minimap from 'js-minimap'
 | 选项      | 描述                                                             | 类型        | 默认值 |
 | :-------- | :--------------------------------------------------------------- | :---------- | :----- |
 | container | 要生成缩略图的容器                                               | HTMLElement | —      |
-| target    | 要放置缩略图的容器，注意不要是 container 的子元素                | HTMLElement | —      |
+| target    | 要放置缩略图的容器                                               | HTMLElement | —      |
 | width     | 缩略图宽度                                                       | number      | 200    |
 | height    | 缩略图高度, 如果设置了宽度，高度会被忽略                         | number      | -      |
 | observe   | 是否监听 container 变化，以自动更新缩略图, 基于 MutationObserver | boolean     | true   |
 | throttle  | 节流时间                                                         | number      | 30     |
+
+## 方法
+
+### reset
+
+如果你想手动重置缩略图，可以调用 `reset` 方法。
+
+```javascript
+const minimap = new Minimap({
+  container,
+  target,
+  observe: false,
+})
+
+// 当你想要重置缩略图时，比如容器的内容发生了变化
+minimap.reset()
+```
