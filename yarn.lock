@@ -108,11 +108,6 @@
   resolved "https://registry.npmjs.org/@trysound/sax/-/sax-0.2.0.tgz"
   integrity sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==
 
-"@types/dom-to-image@2.6.4":
-  version "2.6.4"
-  resolved "https://registry.npmjs.org/@types/dom-to-image/-/dom-to-image-2.6.4.tgz"
-  integrity sha512-UddUdGF1qulrSDulkz3K2Ypq527MR6ixlgAzqLbxSiQ0icx0XDlIV+h4+edmjq/1dqn0KgN0xGSe1kI9t+vGuw==
-
 "@types/estree@*":
   version "1.0.0"
   resolved "https://registry.npmjs.org/@types/estree/-/estree-1.0.0.tgz"
@@ -411,11 +406,6 @@ dom-serializer@^1.0.1:
     domelementtype "^2.0.1"
     domhandler "^4.2.0"
     entities "^2.0.0"
-
-dom-to-image@2.6.0:
-  version "2.6.0"
-  resolved "https://registry.npmjs.org/dom-to-image/-/dom-to-image-2.6.0.tgz"
-  integrity sha512-Dt0QdaHmLpjURjU7Tnu3AgYSF2LuOmksSGsUcE6ItvJoCWTBEmiMXcqBdNSAm9+QbbwD7JMoVsuuKX6ZVQv1qA==
 
 domelementtype@^2.0.1, domelementtype@^2.2.0:
   version "2.3.0"
