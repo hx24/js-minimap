@@ -1,4 +1,4 @@
-import domToImage from './dom-to-image/index'
+import domToImage from 'dom-to-image-more'
 import lodashThrottle from 'lodash.throttle'
 import './style.css'
 

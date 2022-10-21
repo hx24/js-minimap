@@ -407,6 +407,11 @@ dom-serializer@^1.0.1:
     domhandler "^4.2.0"
     entities "^2.0.0"
 
+dom-to-image-more@2.12.0:
+  version "2.12.0"
+  resolved "https://registry.npmjs.org/dom-to-image-more/-/dom-to-image-more-2.12.0.tgz#2abeca8061aaac6ab9ce3f9a484095b0ba73f865"
+  integrity sha512-uMc3lgBu75K5waepExeMawDcNRVGD1Y80Kj6LNe9DJsik8iuajdgeUWhAXG+Vrk3DFMYMiErqPhM0c3X0G3kQg==
+
 domelementtype@^2.0.1, domelementtype@^2.2.0:
   version "2.3.0"
   resolved "https://registry.npmjs.org/domelementtype/-/domelementtype-2.3.0.tgz"

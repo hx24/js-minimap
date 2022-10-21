@@ -1,5 +1,5 @@
 {
-  "compilerOptions": {
+    "compilerOptions": {
       "module": "ES2015",
       "allowSyntheticDefaultImports": true,
       "noImplicitAny": true,
@@ -7,6 +7,8 @@
       "preserveConstEnums": true,
       "sourceMap": true,
       "lib": ["ES2015", "dom"],
+      "baseUrl": ".",
+      "paths": { "*": ["src/types/*"]}
   },
   "include": [
       "src/**/*"
@@ -14,5 +16,5 @@
   "exclude": [
       "node_modules",
       "**/*.spec.ts"
-  ]
+  ],
 }
