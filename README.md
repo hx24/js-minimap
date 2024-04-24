@@ -4,7 +4,9 @@
 
 Generate a minimap for your web page(or a module), and observe the view to update automatic.
 
-自动生成页面（或局部模块）的缩略图，并可观察视图变化以自动更新缩略图。
+自动生成页面（或局部模块）的缩略图，并可观察视图变化以自动更新缩略图。  
+
+[Demo](https://www.huangxin.fun/static/js-minimap/)
 
 ![preview](https://qnm.hunliji.com/FtjaiZMwrepSyKiB33s9KhHrZk9J)
 
@@ -20,6 +22,11 @@ import Minimap from 'js-minimap'
 
 ```html
 <script src="js-minimap/dist/minimap.umd.js" />
+
+// cdn
+<script src="https://cdn.jsdelivr.net/npm/js-minimap" />
+// or
+<script src="https://unpkg.com/js-minimap" />
 ```
 
 ## Usage
@@ -46,8 +53,8 @@ import Minimap from 'js-minimap'
 
 | Option    | Description                                                                         | Type        | Default |
 | :-------- | :---------------------------------------------------------------------------------- | :---------- | :------ |
-| container | any container you want to generate a minimap for                                    | HTMLElement | —       |
-| target    | somewhere you want to place the minimap.                                            | HTMLElement | —       |
+| container | any container you want to generate a minimap for                                    | HTMLElement | -       |
+| target    | somewhere you want to place the minimap.                                            | HTMLElement | -       |
 | width     | minimap's width                                                                     | number      | 200     |
 | height    | minimap's height, if `width` is available, `height` will be ignored                 | number      | -       |
 | observe   | whether observe the view container to update the minimap, based on MutationObserver | boolean     | true    |
@@ -57,7 +64,7 @@ import Minimap from 'js-minimap'
 
 ### reset
 
-if you want to reset the minimap manually, you can call `reset` method.
+if you want to reset the minimap manually, call `reset` method.
 
 ```javascript
 const minimap = new Minimap({

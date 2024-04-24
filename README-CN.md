@@ -2,6 +2,8 @@
 
 自动生成页面（或局部模块）的缩略图，并可观察视图变化以自动更新缩略图。
 
+[Demo](https://www.huangxin.fun/static/js-minimap/)
+
 ![preview](https://qnm.hunliji.com/FtjaiZMwrepSyKiB33s9KhHrZk9J)
 
 ## 安装
@@ -16,6 +18,11 @@ import Minimap from 'js-minimap'
 
 ```html
 <script src="js-minimap/dist/minimap.umd.js" />
+
+// cdn
+<script src="https://cdn.jsdelivr.net/npm/js-minimap" />
+// 或
+<script src="https://unpkg.com/js-minimap" />
 ```
 
 ## 使用
@@ -42,8 +49,8 @@ import Minimap from 'js-minimap'
 
 | 选项      | 描述                                                             | 类型        | 默认值 |
 | :-------- | :--------------------------------------------------------------- | :---------- | :----- |
-| container | 要生成缩略图的容器                                               | HTMLElement | —      |
-| target    | 要放置缩略图的容器                                               | HTMLElement | —      |
+| container | 要生成缩略图的容器                                               | HTMLElement | -      |
+| target    | 要放置缩略图的容器                                               | HTMLElement | -      |
 | width     | 缩略图宽度                                                       | number      | 200    |
 | height    | 缩略图高度, 如果设置了宽度，高度会被忽略                         | number      | -      |
 | observe   | 是否监听 container 变化，以自动更新缩略图, 基于 MutationObserver | boolean     | true   |
